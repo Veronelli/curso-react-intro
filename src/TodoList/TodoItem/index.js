@@ -1,6 +1,5 @@
-import './css/TodoItem.css'
-import { TodoIcon } from './TodoIcon';
-
+import '../../css/TodoItem.css'
+import { TodoIcon } from '../../TodoIcon';
 
 function TodoItem({title, completed, onComplete, onDelete}){
     return(

@@ -1,4 +1,4 @@
-import './css/TodoCounter.css'
+import '../css/TodoCounter.css'
 import React from 'react'
 
 function TodoCounter({completed, total}){
