@@ -9,11 +9,14 @@ const colorStatus = {
 
 }
 
-function TodoItem({title, completed}){
+function TodoItem({title, completed, onComplete, onDelete}){
     return(
       <div className='todo-list'>
         <li>
-          <div style={colorStatus[completed]} className='statusColor'>
+          <div
+            style={colorStatus[completed]}
+            className='statusColor'
+            onClick={onComplete}>
           </div>
           <div>
           <h4>{title}
@@ -21,7 +24,7 @@ function TodoItem({title, completed}){
           <p><i>{completed ? "Completed" : ""}</i></p>
             
           </div>
-          <button className='delete-button'>
+          <button className='delete-button' onClick={onDelete}>
             X
           </button>
         </li>
