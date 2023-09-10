@@ -1,6 +1,6 @@
 import '../css/TodoCreateButton.css'
 
-export default function(props){
+function TodoCreateButton(props){
     return(
         <button className="create-button" >
             <b>
@@ -9,3 +9,5 @@ export default function(props){
         </button>
     )
 }
+
+export {TodoCreateButton}
