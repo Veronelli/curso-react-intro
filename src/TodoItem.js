@@ -1,31 +1,28 @@
 import './css/TodoItem.css'
-const colorStatus = {
-  true: {
-    background: "green"
-  },
-  false: {
-    background: "red"
-  }
+import { TodoIcon } from './TodoIcon';
 
-}
 
 function TodoItem({title, completed, onComplete, onDelete}){
     return(
       <div className='todo-list'>
         <li>
-          <div
-            style={colorStatus[completed]}
-            className='statusColor'
-            onClick={onComplete}>
-          </div>
+          <TodoIcon type="check"
+            onComplete={onComplete}
+            fillColor={completed ? "green" : "gray"}/>
           <div>
-          <h4>{title}
+          <h4>
+            {title}
           </h4>
           <p><i>{completed ? "Completed" : ""}</i></p>
             
           </div>
           <button className='delete-button' onClick={onDelete}>
-            X
+          <div>
+            
+          <TodoIcon type="delete"
+            fillColor='white'
+            onClick={onDelete}/>
+            </div>
           </button>
         </li>
       </div>

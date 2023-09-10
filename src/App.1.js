@@ -58,7 +58,6 @@ export function App() {
     setTodos(newTodoList)
   }
 
-  console.log("Texto escrito: ", searchValue);
   return (
     <>
       <TodoCounter completed={todosCompleted} total={todosLength} />
@@ -66,16 +65,14 @@ export function App() {
         searchValue={searchValue}
         setSearchValue={setSearchValue}/>
       <TodoList>
-        {todos.map(todo=>
+        {todosFiltred.map(todo=>
                 <TodoItem
                 title={todo.title}
                 key={todo.title}
                 completed={todo.completed}
                 setSearchValue={setSearchValue}
-                onDelete={()=>deleteTodo(todo.title)}
-                onComplete = {()=>{
-                  completeTodo(todo.title)
-                  }}
+                onDelete = {()=>deleteTodo(todo.title)}
+                onComplete = {()=>completeTodo(todo.title)} 
             />)}
       </TodoList>
       <TodoCreateButton>

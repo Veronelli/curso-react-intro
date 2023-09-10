@@ -24,3 +24,11 @@ li{
     width: 10px;
     height: 100%;
 }
+
+.Icon{
+    width: 25px;
+}
+
+.Icon-delete:hover .Icon-svg{
+    fill: rgb(216, 216, 216);
+}
