@@ -1,11 +1,11 @@
+import './css/TodoCreateButton.css'
+
 export default function(props){
     return(
-        <div className="create-button">
-            <button>
-                <b>
-                    {props.children}
-                </b>
-            </button>
-        </div>
+        <button className="create-button">
+            <b>
+                {props.children}
+            </b>
+        </button>
     )
 }

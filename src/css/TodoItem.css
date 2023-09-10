@@ -1,0 +1,26 @@
+li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100% - 10px);
+    height: 70px;
+    padding: 5px;
+    line-break: auto;
+    background-color: rgba(0, 0, 0, 0.044);
+}
+
+.delete-button{
+    background-color: red;
+    color: white;
+    height: 100%;
+    width: 30px;
+    font-weight: bolder;
+    border: 0px;
+    cursor: pointer;
+}
+
+.statusColor{
+    display: block;
+    width: 10px;
+    height: 100%;
+}
