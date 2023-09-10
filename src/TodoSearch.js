@@ -1,15 +1,16 @@
 import './css/TodoSearch.css'
+import React, { useState } from 'react'
 
-function searchTodo(event){
-    searchField = event.target.value
-    console.log(searchField)
-}
-let searchField="Test"
+
 function TodoSearch(){
+    const [searchValue, setSearchValue] = React.useState();
+    useState('');
+
+    console.log("Texto escrito: ", searchValue)
     return (
         <input placeholder="Cortar Cebolla"
-        value={searchField}
-        onChange={(event)=>searchTodo(event)}
+        value={searchValue}
+        onChange={(event)=>setSearchValue(event.target.value)}
         >
             
         </input>
