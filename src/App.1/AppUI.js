@@ -4,25 +4,44 @@ import { TodoSearch } from "../TodoSearch"
 import { TodoItem } from "../TodoList/TodoItem"
 import { TodoList } from "../TodoList"
 import {TodoCreateButton} from "../TodoCreateButton"
+import { TodosError } from "../TodosError"
+import { TodosEmpty } from "../TodosEmpty"
+import { SkeletonListTodos } from "../Skeleton"
 
-function AppUI({todosCompleted, todosLength, searchValue, setSearchValue, todosFiltred, deleteTodo, completeTodo}){
+import {TodoConsumer} from "../TodoContext";
+
+function AppUI(){
     return (
         <>
-            <TodoCounter completed={todosCompleted} total={todosLength} />
-            <TodoSearch
-            searchValue={searchValue}
-            setSearchValue={setSearchValue}/>
-            <TodoList>
-                {todosFiltred.map(todo=>
-                        <TodoItem
-                        title={todo.title}
-                        key={todo.title}
-                        completed={todo.completed}
-                        setSearchValue={setSearchValue}
-                        onDelete = {()=>deleteTodo(todo.title)}
-                        onComplete = {()=>completeTodo(todo.title)} 
-                    />)}
-            </TodoList>
+            <TodoCounter />
+            <TodoSearch />
+            <TodoConsumer>
+                {({
+                    loading,
+                    error,
+                    setSearchValue,
+                    todosFiltred,
+                    deleteTodo, 
+                    completeTodo
+                })=>(
+                        <TodoList>
+                        {loading && <SkeletonListTodos></SkeletonListTodos>}
+                        {error && <TodosError></TodosError>}
+                        {(!loading && todosFiltred.length === 0) && <TodosEmpty></TodosEmpty>}
+                            {todosFiltred.map(todo=>
+                                    <TodoItem
+                                    title={todo.title}
+                                    key={todo.title}
+                                    completed={todo.completed}
+                                    setSearchValue={setSearchValue}
+                                    onDelete = {()=>deleteTodo(todo.title)}
+                                    onComplete = {()=>completeTodo(todo.title)} 
+                                />)}
+                        </TodoList>
+
+                    )
+                }
+            </TodoConsumer>
             <TodoCreateButton>
             Create Task
             </TodoCreateButton>
