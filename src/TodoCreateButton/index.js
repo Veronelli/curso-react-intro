@@ -1,10 +1,10 @@
 import '../css/TodoCreateButton.css'
 
-function TodoCreateButton(props){
+function TodoCreateButton({children, openModal, setOpenModal}){
     return(
-        <button className="create-button" >
+        <button className="create-button" onClick={()=>setOpenModal(!openModal)}>
             <b>
-                {props.children}
+                {children}
             </b>
         </button>
     )

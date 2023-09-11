@@ -8,9 +8,11 @@ import { TodosError } from "../TodosError"
 import { TodosEmpty } from "../TodosEmpty"
 import { SkeletonListTodos } from "../Skeleton"
 
-import {TodoConsumer} from "../TodoContext";
+import {TodoConsumer, TodoContext} from "../TodoContext";
+import { Modal } from "../Modal"
 
 function AppUI(){
+    const {openModal, setOpenModal} = React.useContext(TodoContext)
     return (
         <>
             <TodoCounter />
@@ -22,7 +24,7 @@ function AppUI(){
                     setSearchValue,
                     todosFiltred,
                     deleteTodo, 
-                    completeTodo
+                    completeTodo,
                 })=>(
                         <TodoList>
                         {loading && <SkeletonListTodos></SkeletonListTodos>}
@@ -42,9 +44,14 @@ function AppUI(){
                     )
                 }
             </TodoConsumer>
-            <TodoCreateButton>
+            <TodoCreateButton openModal={openModal} setOpenModal={setOpenModal}>
             Create Task
             </TodoCreateButton>
+            {openModal && (
+                <Modal>
+                    La funcionalidad de agregar Todo
+                </Modal>
+            )}
         </>
     )
 }
