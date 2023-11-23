@@ -40,6 +40,7 @@ function TodoProvider({children}){
             <TodoContext.Provider value={{
               loading,
               error,
+              todos,
               todosCompleted,
               todosLength,
               searchValue,
@@ -48,6 +49,7 @@ function TodoProvider({children}){
               setSearchValue,
               deleteTodo, 
               completeTodo,
+              saveTodos,
               setOpenModal
             }}>
                 {children}

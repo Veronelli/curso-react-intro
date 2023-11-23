@@ -10,6 +10,7 @@ import { SkeletonListTodos } from "../Skeleton"
 
 import {TodoConsumer, TodoContext} from "../TodoContext";
 import { Modal } from "../Modal"
+import { ModalForm } from "../ModalForm"
 
 function AppUI(){
     const {openModal, setOpenModal} = React.useContext(TodoContext)
@@ -49,7 +50,7 @@ function AppUI(){
             </TodoCreateButton>
             {openModal && (
                 <Modal>
-                    La funcionalidad de agregar Todo
+                    <ModalForm></ModalForm>
                 </Modal>
             )}
         </>
