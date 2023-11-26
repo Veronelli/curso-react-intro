@@ -37,7 +37,8 @@ function AppUI() {
       <TodoList
         onError={() => <TodosError />}
         onLoading={() => <TodosLoading />}
-        onEmptyTodos={() => <EmptyTodos />}
+        onEmptyTodos={() => <EmptyTodos message="¡Crea tu primer TODO!" />}
+        onNotFound={() => <EmptyTodos message={`No hay resultados para ${searchValue}`} />}
         render={(todo) => (
           <TodoItem
             key={todo.text}
@@ -50,6 +51,7 @@ function AppUI() {
         error={error}
         loading={loading}
         searchedTodos={searchedTodos}
+        totalTodos={totalTodos}
       ></TodoList>
 
       <CreateTodoButton setOpenModal={setOpenModal} />

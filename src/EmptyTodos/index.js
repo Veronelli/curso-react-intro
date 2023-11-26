@@ -1,8 +1,8 @@
 import React from 'react';
 
-function EmptyTodos() {
+function EmptyTodos(props) {
   return (
-    <p>¡Crea tu primer TODO!</p>
+    <p>{props.message}</p>
   );
 }
 
