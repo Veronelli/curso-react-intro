@@ -10,6 +10,7 @@ import { CreateTodoButton } from "../CreateTodoButton";
 import { TodoForm } from "../TodoForm";
 import { Modal } from "../Modal";
 import { TodoContext } from "../TodoContext";
+import { ChangeAlertWithStorageListener } from "../ChangeAlert";
 import { TodoHeader } from "../TodoHeader";
 
 function AppUI() {
@@ -38,7 +39,9 @@ function AppUI() {
         onError={() => <TodosError />}
         onLoading={() => <TodosLoading />}
         onEmptyTodos={() => <EmptyTodos message="¡Crea tu primer TODO!" />}
-        onNotFound={() => <EmptyTodos message={`No hay resultados para ${searchValue}`} />}
+        onNotFound={() => (
+          <EmptyTodos message={`No hay resultados para ${searchValue}`} />
+        )}
         render={(todo) => (
           <TodoItem
             key={todo.text}
@@ -65,7 +68,7 @@ function AppUI() {
       </TodoList>
 
       <CreateTodoButton setOpenModal={setOpenModal} />
-
+      <ChangeAlertWithStorageListener></ChangeAlertWithStorageListener>
       {openModal && (
         <Modal>
           <TodoForm />
