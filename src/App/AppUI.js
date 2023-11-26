@@ -10,7 +10,7 @@ import { CreateTodoButton } from "../CreateTodoButton";
 import { TodoForm } from "../TodoForm";
 import { Modal } from "../Modal";
 import { TodoContext } from "../TodoContext";
-import { ChangeAlertWithStorageListener } from "../ChangeAlert";
+import { ChangeAlert } from "../ChangeAlert";
 import { TodoHeader } from "../TodoHeader";
 
 function AppUI() {
@@ -69,7 +69,7 @@ function AppUI() {
       </TodoList>
 
       <CreateTodoButton setOpenModal={setOpenModal} />
-      <ChangeAlertWithStorageListener sincronizeTodos={sincronizeTodos}/>
+      <ChangeAlert sincronizeTodos={sincronizeTodos}/>
       {openModal && (
         <Modal>
           <TodoForm />
