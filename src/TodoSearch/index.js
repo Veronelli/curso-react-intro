@@ -4,6 +4,7 @@ import './TodoSearch.css';
 function TodoSearch({
   searchValue,
   setSearchValue,
+  loading
 }) {
   
   return (
@@ -11,6 +12,7 @@ function TodoSearch({
       placeholder="Cortar cebolla"
       className="TodoSearch"
       value={searchValue}
+      disabled={loading}
       onChange={(event) => {
         setSearchValue(event.target.value);
       }}

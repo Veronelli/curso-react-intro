@@ -9,3 +9,7 @@
 .TodoCounter span {
   font-weight: bold;
 }
+
+.loading-counter{
+  opacity: 0.5;
+}
