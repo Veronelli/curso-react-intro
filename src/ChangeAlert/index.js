@@ -1,12 +1,12 @@
 import React from "react";
 import { withStorageListener } from "./withSotageListener";
-
+import style from './style.module.css'
 function ChangeAlert(props) {
     if(props.show){
         return (
-            <div>
+            <div className={style['alert-container']}>
                 <p>Hubo cambios</p>
-                <button onClick={()=>{props.toggleShow()}}>Refrescar información</button>
+                <button className={style['button-reset']} onClick={()=>{props.toggleShow()}}>Refrescar información</button>
             </div>
         );
     }
