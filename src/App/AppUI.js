@@ -26,6 +26,7 @@ function AppUI() {
     totalTodos,
     searchValue,
     setSearchValue,
+    sincronizeTodos
   } = React.useContext(TodoContext);
 
   return (
@@ -68,7 +69,7 @@ function AppUI() {
       </TodoList>
 
       <CreateTodoButton setOpenModal={setOpenModal} />
-      <ChangeAlertWithStorageListener></ChangeAlertWithStorageListener>
+      <ChangeAlertWithStorageListener sincronizeTodos={sincronizeTodos}/>
       {openModal && (
         <Modal>
           <TodoForm />

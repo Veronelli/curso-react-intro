@@ -9,6 +9,7 @@ function TodoProvider({ children }) {
     saveItem: saveTodos,
     loading,
     error,
+    sincronizeItem: sincronizeTodos
   } = useLocalStorage('TODOS_V1', []);
   const [searchValue, setSearchValue] = React.useState('');
   const [openModal, setOpenModal] = React.useState(false);
@@ -67,6 +68,7 @@ function TodoProvider({ children }) {
       deleteTodo,
       openModal,
       setOpenModal,
+      sincronizeTodos
     }}>
       {children}
     </TodoContext.Provider>
