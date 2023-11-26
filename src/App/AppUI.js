@@ -52,7 +52,17 @@ function AppUI() {
         loading={loading}
         searchedTodos={searchedTodos}
         totalTodos={totalTodos}
-      ></TodoList>
+      >
+        {(todo) => (
+          <TodoItem
+            key={todo.text}
+            text={todo.text}
+            completed={todo.completed}
+            onComplete={() => completeTodo(todo.text)}
+            onDelete={() => deleteTodo(todo.text)}
+          />
+        )}
+      </TodoList>
 
       <CreateTodoButton setOpenModal={setOpenModal} />
 
